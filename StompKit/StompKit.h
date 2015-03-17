@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JFRWebSocket.h"
 
 #pragma mark Frame headers
 
@@ -83,7 +82,7 @@ typedef void (^STOMPMessageHandler)(STOMPMessage *message);
 
 #pragma mark STOMP Client
 
-@interface STOMPClient : NSObject <JFRWebSocketDelegate>
+@interface STOMPClient : NSObject
 
 @property (nonatomic, copy) STOMPFrameHandler receiptHandler;
 @property (nonatomic, copy) void (^errorHandler)(NSError *error);
