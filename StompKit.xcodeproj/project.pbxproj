@@ -45,7 +45,7 @@
 
 /* Begin PBXFileReference section */
 		37A4F2569A574CA6A0704DA6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		44F558268B504F65BBF4384B /* Pods-StompKitTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StompKitTests.xcconfig"; path = "Pods/Pods-StompKitTests.xcconfig"; sourceTree = "<group>"; };
+		566F44FAC018466ACDB20B75 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		591868DBFE214F55AB478DA7 /* libPods-StompKitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StompKitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9320F3901816698700FF599F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		9320F3911816698700FF599F /* StompKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StompKit.podspec; sourceTree = "<group>"; };
@@ -62,7 +62,9 @@
 		938827ED18056CA2009A1164 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		938827EE18056CA2009A1164 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		938827F218057877009A1164 /* StompKitTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StompKitTests.h; sourceTree = "<group>"; };
-		BFE05B97D82D403E8462EDC5 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		9D76DD3AA2A0BA27F8BC7D9A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		E13BC1EA3039EC423342920B /* Pods-StompKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StompKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StompKitTests/Pods-StompKitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F2106E46785E4C239A551BE3 /* Pods-StompKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StompKitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StompKitTests/Pods-StompKitTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +103,7 @@
 				932BA59118056C4C00A03257 /* StompKitTests */,
 				932BA57A18056C4B00A03257 /* Frameworks */,
 				932BA57918056C4B00A03257 /* Products */,
-				BFE05B97D82D403E8462EDC5 /* Pods.xcconfig */,
-				44F558268B504F65BBF4384B /* Pods-StompKitTests.xcconfig */,
+				C220D1A04164CBCD2C98650C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,6 +154,17 @@
 				932BA59418056C4C00A03257 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C220D1A04164CBCD2C98650C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9D76DD3AA2A0BA27F8BC7D9A /* Pods.debug.xcconfig */,
+				566F44FAC018466ACDB20B75 /* Pods.release.xcconfig */,
+				E13BC1EA3039EC423342920B /* Pods-StompKitTests.debug.xcconfig */,
+				F2106E46785E4C239A551BE3 /* Pods-StompKitTests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,7 +275,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-StompKitTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StompKitTests/Pods-StompKitTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F14EDA9ACA514E238C2E405D /* Check Pods Manifest.lock */ = {
@@ -293,7 +305,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -409,7 +421,7 @@
 		};
 		932BA59C18056C4C00A03257 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BFE05B97D82D403E8462EDC5 /* Pods.xcconfig */;
+			baseConfigurationReference = 9D76DD3AA2A0BA27F8BC7D9A /* Pods.debug.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/StompKit.dst;
 				OTHER_LDFLAGS = "-ObjC";
@@ -420,7 +432,7 @@
 		};
 		932BA59D18056C4C00A03257 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BFE05B97D82D403E8462EDC5 /* Pods.xcconfig */;
+			baseConfigurationReference = 566F44FAC018466ACDB20B75 /* Pods.release.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/StompKit.dst;
 				OTHER_LDFLAGS = "-ObjC";
@@ -431,7 +443,7 @@
 		};
 		932BA59F18056C4C00A03257 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 44F558268B504F65BBF4384B /* Pods-StompKitTests.xcconfig */;
+			baseConfigurationReference = E13BC1EA3039EC423342920B /* Pods-StompKitTests.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -451,7 +463,7 @@
 		};
 		932BA5A018056C4C00A03257 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 44F558268B504F65BBF4384B /* Pods-StompKitTests.xcconfig */;
+			baseConfigurationReference = F2106E46785E4C239A551BE3 /* Pods-StompKitTests.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				FRAMEWORK_SEARCH_PATHS = (
