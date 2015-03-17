@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		6C24B5EB8E0343E483E53CA2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37A4F2569A574CA6A0704DA6 /* libPods.a */; };
 		932BA57C18056C4B00A03257 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 932BA57B18056C4B00A03257 /* Foundation.framework */; };
-		932BA58118056C4B00A03257 /* StompKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 932BA58018056C4B00A03257 /* StompKit.h */; };
-		932BA58318056C4B00A03257 /* StompKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 932BA58218056C4B00A03257 /* StompKit.m */; };
+		932BA58118056C4B00A03257 /* WebsocketStompKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 932BA58018056C4B00A03257 /* WebsocketStompKit.h */; };
+		932BA58318056C4B00A03257 /* WebsocketStompKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 932BA58218056C4B00A03257 /* WebsocketStompKit.m */; };
 		932BA58A18056C4C00A03257 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 932BA58918056C4C00A03257 /* XCTest.framework */; };
 		932BA58B18056C4C00A03257 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 932BA57B18056C4B00A03257 /* Foundation.framework */; };
 		932BA58D18056C4C00A03257 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 932BA58C18056C4C00A03257 /* UIKit.framework */; };
-		932BA59018056C4C00A03257 /* libStompKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 932BA57818056C4B00A03257 /* libStompKit.a */; };
+		932BA59018056C4C00A03257 /* libWebsocketStompKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 932BA57818056C4B00A03257 /* libWebsocketStompKit.a */; };
 		932BA59618056C4C00A03257 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 932BA59418056C4C00A03257 /* InfoPlist.strings */; };
 		932BA59818056C4C00A03257 /* StompKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 932BA59718056C4C00A03257 /* StompKitTests.m */; };
 		D1313E2FF21A4E15A007CA43 /* libPods-StompKitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 591868DBFE214F55AB478DA7 /* libPods-StompKitTests.a */; };
@@ -37,7 +37,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				932BA58118056C4B00A03257 /* StompKit.h in CopyFiles */,
+				932BA58118056C4B00A03257 /* WebsocketStompKit.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,14 +48,14 @@
 		566F44FAC018466ACDB20B75 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		591868DBFE214F55AB478DA7 /* libPods-StompKitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StompKitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9320F3901816698700FF599F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
-		932BA57818056C4B00A03257 /* libStompKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libStompKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		932BA57818056C4B00A03257 /* libWebsocketStompKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWebsocketStompKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		932BA57B18056C4B00A03257 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		932BA58018056C4B00A03257 /* StompKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StompKit.h; sourceTree = "<group>"; };
-		932BA58218056C4B00A03257 /* StompKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StompKit.m; sourceTree = "<group>"; };
-		932BA58818056C4C00A03257 /* StompKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StompKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		932BA58018056C4B00A03257 /* WebsocketStompKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebsocketStompKit.h; sourceTree = "<group>"; };
+		932BA58218056C4B00A03257 /* WebsocketStompKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebsocketStompKit.m; sourceTree = "<group>"; };
+		932BA58818056C4C00A03257 /* WebsocketStompKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebsocketStompKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		932BA58918056C4C00A03257 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		932BA58C18056C4C00A03257 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		932BA59318056C4C00A03257 /* StompKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StompKitTests-Info.plist"; sourceTree = "<group>"; };
+		932BA59318056C4C00A03257 /* WebsocketStompKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WebsocketStompKitTests-Info.plist"; sourceTree = "<group>"; };
 		932BA59518056C4C00A03257 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		932BA59718056C4C00A03257 /* StompKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StompKitTests.m; sourceTree = "<group>"; };
 		938827ED18056CA2009A1164 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 			files = (
 				932BA58A18056C4C00A03257 /* XCTest.framework in Frameworks */,
 				932BA58D18056C4C00A03257 /* UIKit.framework in Frameworks */,
-				932BA59018056C4C00A03257 /* libStompKit.a in Frameworks */,
+				932BA59018056C4C00A03257 /* libWebsocketStompKit.a in Frameworks */,
 				932BA58B18056C4C00A03257 /* Foundation.framework in Frameworks */,
 				D1313E2FF21A4E15A007CA43 /* libPods-StompKitTests.a in Frameworks */,
 			);
@@ -97,7 +97,7 @@
 				9320F3901816698700FF599F /* Podfile */,
 				938827ED18056CA2009A1164 /* LICENSE */,
 				938827EE18056CA2009A1164 /* README.md */,
-				932BA57D18056C4B00A03257 /* StompKit */,
+				932BA57D18056C4B00A03257 /* WebsocketStompKit */,
 				932BA59118056C4C00A03257 /* StompKitTests */,
 				932BA57A18056C4B00A03257 /* Frameworks */,
 				932BA57918056C4B00A03257 /* Products */,
@@ -108,8 +108,8 @@
 		932BA57918056C4B00A03257 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				932BA57818056C4B00A03257 /* libStompKit.a */,
-				932BA58818056C4C00A03257 /* StompKitTests.xctest */,
+				932BA57818056C4B00A03257 /* libWebsocketStompKit.a */,
+				932BA58818056C4C00A03257 /* WebsocketStompKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,12 +126,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		932BA57D18056C4B00A03257 /* StompKit */ = {
+		932BA57D18056C4B00A03257 /* WebsocketStompKit */ = {
 			isa = PBXGroup;
 			children = (
-				932BA58018056C4B00A03257 /* StompKit.h */,
-				932BA58218056C4B00A03257 /* StompKit.m */,
+				932BA58018056C4B00A03257 /* WebsocketStompKit.h */,
+				932BA58218056C4B00A03257 /* WebsocketStompKit.m */,
 			);
+			name = WebsocketStompKit;
 			path = StompKit;
 			sourceTree = "<group>";
 		};
@@ -148,7 +149,7 @@
 		932BA59218056C4C00A03257 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				932BA59318056C4C00A03257 /* StompKitTests-Info.plist */,
+				932BA59318056C4C00A03257 /* WebsocketStompKitTests-Info.plist */,
 				932BA59418056C4C00A03257 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -168,9 +169,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		932BA57718056C4B00A03257 /* StompKit */ = {
+		932BA57718056C4B00A03257 /* WebsocketStompKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 932BA59B18056C4C00A03257 /* Build configuration list for PBXNativeTarget "StompKit" */;
+			buildConfigurationList = 932BA59B18056C4C00A03257 /* Build configuration list for PBXNativeTarget "WebsocketStompKit" */;
 			buildPhases = (
 				F14EDA9ACA514E238C2E405D /* Check Pods Manifest.lock */,
 				932BA57418056C4B00A03257 /* Sources */,
@@ -182,14 +183,14 @@
 			);
 			dependencies = (
 			);
-			name = StompKit;
+			name = WebsocketStompKit;
 			productName = StompKit;
-			productReference = 932BA57818056C4B00A03257 /* libStompKit.a */;
+			productReference = 932BA57818056C4B00A03257 /* libWebsocketStompKit.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		932BA58718056C4C00A03257 /* StompKitTests */ = {
+		932BA58718056C4C00A03257 /* WebsocketStompKitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 932BA59E18056C4C00A03257 /* Build configuration list for PBXNativeTarget "StompKitTests" */;
+			buildConfigurationList = 932BA59E18056C4C00A03257 /* Build configuration list for PBXNativeTarget "WebsocketStompKitTests" */;
 			buildPhases = (
 				125CC95EDE78443AA2A8A7CA /* Check Pods Manifest.lock */,
 				932BA58418056C4C00A03257 /* Sources */,
@@ -202,9 +203,9 @@
 			dependencies = (
 				932BA58F18056C4C00A03257 /* PBXTargetDependency */,
 			);
-			name = StompKitTests;
+			name = WebsocketStompKitTests;
 			productName = StompKitTests;
-			productReference = 932BA58818056C4C00A03257 /* StompKitTests.xctest */;
+			productReference = 932BA58818056C4C00A03257 /* WebsocketStompKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -216,7 +217,7 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Jeff Mesnil";
 			};
-			buildConfigurationList = 932BA57318056C4B00A03257 /* Build configuration list for PBXProject "StompKit" */;
+			buildConfigurationList = 932BA57318056C4B00A03257 /* Build configuration list for PBXProject "WebsocketStompKit" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -228,8 +229,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				932BA57718056C4B00A03257 /* StompKit */,
-				932BA58718056C4C00A03257 /* StompKitTests */,
+				932BA57718056C4B00A03257 /* WebsocketStompKit */,
+				932BA58718056C4C00A03257 /* WebsocketStompKitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -313,7 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				932BA58318056C4B00A03257 /* StompKit.m in Sources */,
+				932BA58318056C4B00A03257 /* WebsocketStompKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,7 +331,7 @@
 /* Begin PBXTargetDependency section */
 		932BA58F18056C4C00A03257 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 932BA57718056C4B00A03257 /* StompKit */;
+			target = 932BA57718056C4B00A03257 /* WebsocketStompKit */;
 			targetProxy = 932BA58E18056C4C00A03257 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -423,7 +424,7 @@
 			buildSettings = {
 				DSTROOT = /tmp/StompKit.dst;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WebsocketStompKit;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -434,7 +435,7 @@
 			buildSettings = {
 				DSTROOT = /tmp/StompKit.dst;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WebsocketStompKit;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -453,8 +454,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "StompKitTests/StompKitTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "StompKitTests/WebsocketStompKitTests-Info.plist";
+				PRODUCT_NAME = WebsocketStompKitTests;
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -469,8 +470,8 @@
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
-				INFOPLIST_FILE = "StompKitTests/StompKitTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "StompKitTests/WebsocketStompKitTests-Info.plist";
+				PRODUCT_NAME = WebsocketStompKitTests;
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
@@ -478,7 +479,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		932BA57318056C4B00A03257 /* Build configuration list for PBXProject "StompKit" */ = {
+		932BA57318056C4B00A03257 /* Build configuration list for PBXProject "WebsocketStompKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				932BA59918056C4C00A03257 /* Debug */,
@@ -487,7 +488,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		932BA59B18056C4C00A03257 /* Build configuration list for PBXNativeTarget "StompKit" */ = {
+		932BA59B18056C4C00A03257 /* Build configuration list for PBXNativeTarget "WebsocketStompKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				932BA59C18056C4C00A03257 /* Debug */,
@@ -496,7 +497,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		932BA59E18056C4C00A03257 /* Build configuration list for PBXNativeTarget "StompKitTests" */ = {
+		932BA59E18056C4C00A03257 /* Build configuration list for PBXNativeTarget "WebsocketStompKitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				932BA59F18056C4C00A03257 /* Debug */,

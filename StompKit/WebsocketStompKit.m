@@ -1,12 +1,13 @@
 //
-//  StompKit.m
-//  StompKit
+//  WebsocketStompKit.m
+//  WebsocketStompKit
 //
 //  Created by Jeff Mesnil on 09/10/2013.
-//  Copyright (c) 2013 Jeff Mesnil. All rights reserved.
+//  Modified by Robin Guldener on 17/03/2015
+//  Copyright (c) 2013 Jeff Mesnil & Robin Guldener. All rights reserved.
 //
 
-#import "StompKit.h"
+#import "WebsocketStompKit.h"
 #import <JFRWebSocket.h>
 
 #define kDefaultTimeout 5
@@ -313,9 +314,12 @@ CFAbsoluteTime serverActivity;
 #pragma mark -
 #pragma mark Public API
 
-- (id)initWithURL:(NSURL *)theUrl {
+- (id)initWithURL:(NSURL *)theUrl webSocketHeaders:(NSDictionary *)headers {
     if(self = [super init]) {
         self.socket = [[JFRWebSocket alloc] initWithURL:theUrl protocols:WSProtocols];
+        for (NSString *key in headers.allKeys) {
+            [self.socket addHeader:[headers objectForKey:key] forKey:key];
+        }
         self.socket.delegate = self;
         
         self.url = theUrl;

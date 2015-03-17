@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "932BA57718056C4B00A03257"
-               BuildableName = "libStompKit.a"
-               BlueprintName = "StompKit"
-               ReferencedContainer = "container:StompKit.xcodeproj">
+               BuildableName = "libWebsocketStompKit.a"
+               BlueprintName = "WebsocketStompKit"
+               ReferencedContainer = "container:WebsocketStompKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "932BA58718056C4C00A03257"
-               BuildableName = "StompKitTests.xctest"
-               BlueprintName = "StompKitTests"
-               ReferencedContainer = "container:StompKit.xcodeproj">
+               BuildableName = "WebsocketStompKitTests.xctest"
+               BlueprintName = "WebsocketStompKitTests"
+               ReferencedContainer = "container:WebsocketStompKit.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -49,6 +49,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "932BA57718056C4B00A03257"
+            BuildableName = "libWebsocketStompKit.a"
+            BlueprintName = "WebsocketStompKit"
+            ReferencedContainer = "container:WebsocketStompKit.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

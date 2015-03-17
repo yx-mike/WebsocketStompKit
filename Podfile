@@ -1,4 +1,4 @@
-xcodeproj 'StompKit.xcodeproj'
+xcodeproj 'WebsocketStompKit.xcodeproj'
 
 platform :ios, '6.0'
 

@@ -1,9 +1,10 @@
 //
-//  StompKit.h
-//  StompKit
+//  WebsocketStompKit.h
+//  WebsocketStompKit
 //
 //  Created by Jeff Mesnil on 09/10/2013.
-//  Copyright (c) 2013 Jeff Mesnil. All rights reserved.
+//  Modified by Robin Guldener on 17/03/2015
+//  Copyright (c) 2013 Jeff Mesnil & Robin Guldener. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -88,7 +89,7 @@ typedef void (^STOMPMessageHandler)(STOMPMessage *message);
 @property (nonatomic, copy) void (^errorHandler)(NSError *error);
 @property (nonatomic, assign) BOOL connected;
 
-- (id)initWithURL:(NSURL *)theUrl;
+- (id)initWithURL:(NSURL *)theUrl webSocketHeaders:(NSDictionary *)headers;
 
 - (void)connectWithLogin:(NSString *)login
                 passcode:(NSString *)passcode
