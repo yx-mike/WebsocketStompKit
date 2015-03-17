@@ -9,8 +9,7 @@
 #ifndef StompKit_StompKitTests_h
 #define StompKit_StompKitTests_h
 
-#define HOST @"localhost"
-#define PORT 61613
+#define URL @"http://localhost:61613"
 #define LOGIN @"user"
 #define PASSCODE @"password"
 

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JFRWebSocket.h"
 
 #pragma mark Frame headers
 
@@ -82,14 +83,13 @@ typedef void (^STOMPMessageHandler)(STOMPMessage *message);
 
 #pragma mark STOMP Client
 
-@interface STOMPClient : NSObject
+@interface STOMPClient : NSObject <JFRWebSocketDelegate>
 
 @property (nonatomic, copy) STOMPFrameHandler receiptHandler;
 @property (nonatomic, copy) void (^errorHandler)(NSError *error);
 @property (nonatomic, assign) BOOL connected;
 
-- (id)initWithHost:(NSString *)theHost
-			  port:(NSUInteger)thePort;
+- (id)initWithURL:(NSURL *)theUrl;
 
 - (void)connectWithLogin:(NSString *)login
                 passcode:(NSString *)passcode

@@ -29,8 +29,7 @@
 {
     [super setUp];
 
-    self.client = [[STOMPClient alloc] initWithHost:HOST
-                                               port:PORT];
+    self.client = [[STOMPClient alloc] initWithURL:[NSURL URLWithString:URL]];
 }
 
 - (void)tearDown
@@ -43,7 +42,7 @@
 
     dispatch_semaphore_t errorReceived = dispatch_semaphore_create(0);
 
-    STOMPClient *otherClient = [[STOMPClient alloc] initWithHost:@"invalid host" port:61613];
+    STOMPClient *otherClient = [[STOMPClient alloc] initWithURL:[NSURL URLWithString:@"invalid url"]];
     [otherClient connectWithLogin:LOGIN
                          passcode:PASSCODE
                 completionHandler:^(STOMPFrame *connectedFrame, NSError *error) {
@@ -65,7 +64,7 @@
                         dispatch_semaphore_signal(connected);
                     }
                 }];
-    XCTAssertTrue(gotSignal(connected, 2), @"can not connect to %@:%d with credentials %@ / %@", HOST, PORT, LOGIN, PASSCODE);
+    XCTAssertTrue(gotSignal(connected, 2), @"can not connect to %@ with credentials %@ / %@", URL, LOGIN, PASSCODE);
 }
 
 - (void)testConnectWithError {

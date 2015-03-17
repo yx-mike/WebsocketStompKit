@@ -7,11 +7,12 @@
 //
 
 #import "StompKit.h"
-#import "GCDAsyncSocket.h"
 
 #define kDefaultTimeout 5
 #define kVersion1_2 @"1.2"
 #define kNoHeartBeat @"0,0"
+
+#define WSProtocols @[@"v10.stomp", @"v11.stomp"]
 
 #pragma mark Logging macros
 
@@ -53,15 +54,16 @@
 
 @interface STOMPClient()
 
-@property (nonatomic, retain) GCDAsyncSocket *socket;
+@property (nonatomic, retain) JFRWebSocket *socket;
+@property (nonatomic, copy) NSURL *url;
 @property (nonatomic, copy) NSString *host;
-@property (nonatomic) NSUInteger port;
 @property (nonatomic) NSString *clientHeartBeat;
 @property (nonatomic, weak) NSTimer *pinger;
 @property (nonatomic, weak) NSTimer *ponger;
 
 @property (nonatomic, copy) void (^disconnectedHandler)(NSError *error);
 @property (nonatomic, copy) void (^connectionCompletionHandler)(STOMPFrame *connectedFrame, NSError *error);
+@property (nonatomic, copy) NSDictionary *connectFrameHeaders;
 @property (nonatomic, retain) NSMutableDictionary *subscriptions;
 
 - (void) sendFrameWithCommand:(NSString *)command
@@ -298,7 +300,8 @@
 
 @implementation STOMPClient
 
-@synthesize socket, host, port;
+@synthesize socket, url, host;
+@synthesize connectFrameHeaders;
 @synthesize connectionCompletionHandler, disconnectedHandler, receiptHandler, errorHandler;
 @synthesize subscriptions;
 @synthesize pinger, ponger;
@@ -309,13 +312,13 @@ CFAbsoluteTime serverActivity;
 #pragma mark -
 #pragma mark Public API
 
-- (id)initWithHost:(NSString *)aHost
-              port:(NSUInteger)aPort {
+- (id)initWithURL:(NSURL *)theUrl {
     if(self = [super init]) {
-        self.socket = [[GCDAsyncSocket alloc] initWithDelegate:self
-                                                 delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
-        self.host = aHost;
-        self.port = aPort;
+        self.socket = [[JFRWebSocket alloc] initWithURL:theUrl protocols:WSProtocols];
+        self.socket.delegate = self;
+        
+        self.url = theUrl;
+        self.host = theUrl.host;
         idGenerator = 0;
         self.connected = NO;
         self.subscriptions = [[NSMutableDictionary alloc] init];
@@ -333,29 +336,9 @@ CFAbsoluteTime serverActivity;
 
 - (void)connectWithHeaders:(NSDictionary *)headers
          completionHandler:(void (^)(STOMPFrame *connectedFrame, NSError *error))completionHandler {
+    self.connectFrameHeaders = headers;
     self.connectionCompletionHandler = completionHandler;
-
-    NSError *err;
-    if(![self.socket connectToHost:host onPort:port error:&err]) {
-        if (self.connectionCompletionHandler) {
-            self.connectionCompletionHandler(nil, err);
-        }
-    }
-
-    NSMutableDictionary *connectHeaders = [[NSMutableDictionary alloc] initWithDictionary:headers];
-    connectHeaders[kHeaderAcceptVersion] = kVersion1_2;
-    if (!connectHeaders[kHeaderHost]) {
-        connectHeaders[kHeaderHost] = host;
-    }
-    if (!connectHeaders[kHeaderHeartBeat]) {
-        connectHeaders[kHeaderHeartBeat] = self.clientHeartBeat;
-    } else {
-        self.clientHeartBeat = connectHeaders[kHeaderHeartBeat];
-    }
-
-    [self sendFrameWithCommand:kCommandConnect
-                       headers:connectHeaders
-                          body: nil];
+    [self.socket connect];
 }
 
 - (void)sendTo:(NSString *)destination
@@ -426,7 +409,7 @@ CFAbsoluteTime serverActivity;
     [self.subscriptions removeAllObjects];
     [self.pinger invalidate];
     [self.ponger invalidate];
-    [self.socket disconnectAfterReadingAndWriting];
+    [self.socket disconnect];
 }
 
 
@@ -436,20 +419,20 @@ CFAbsoluteTime serverActivity;
 - (void)sendFrameWithCommand:(NSString *)command
                      headers:(NSDictionary *)headers
                         body:(NSString *)body {
-    if ([self.socket isDisconnected]) {
+    if (![self.socket isConnected]) {
         return;
     }
     STOMPFrame *frame = [[STOMPFrame alloc] initWithCommand:command headers:headers body:body];
     LogDebug(@">>> %@", frame);
     NSData *data = [frame toData];
-    [self.socket writeData:data withTimeout:kDefaultTimeout tag:123];
+    [self.socket writeData:data];
 }
 
 - (void)sendPing:(NSTimer *)timer  {
-    if ([self.socket isDisconnected]) {
+    if (![self.socket isConnected]) {
         return;
     }
-    [self.socket writeData:[GCDAsyncSocket LFData] withTimeout:kDefaultTimeout tag:123];
+    [self.socket writeData:[NSData dataWithBytes:"\x0A" length:1]];
     LogDebug(@">>> PING");
 }
 
@@ -548,41 +531,44 @@ CFAbsoluteTime serverActivity;
     }
 }
 
-- (void)readFrame {
-	[[self socket] readDataToData:[GCDAsyncSocket ZeroData] withTimeout:-1 tag:0];
+#pragma mark -
+#pragma mark JetfireDelegate
+
+- (void) websocketDidConnect:(JFRWebSocket*) socket {
+    
+    // Websocket has connected, send the STOMP connection frame
+    NSMutableDictionary *connectHeaders = [[NSMutableDictionary alloc] initWithDictionary:connectFrameHeaders];
+    connectHeaders[kHeaderAcceptVersion] = kVersion1_2;
+    if (!connectHeaders[kHeaderHost]) {
+        connectHeaders[kHeaderHost] = host;
+    }
+    if (!connectHeaders[kHeaderHeartBeat]) {
+        connectHeaders[kHeaderHeartBeat] = self.clientHeartBeat;
+    } else {
+        self.clientHeartBeat = connectHeaders[kHeaderHeartBeat];
+    }
+    
+    [self sendFrameWithCommand:kCommandConnect
+                       headers:connectHeaders
+                          body: nil];
+    
 }
 
-#pragma mark -
-#pragma mark GCDAsyncSocketDelegate
-
-- (void)socket:(GCDAsyncSocket *)sock
-   didReadData:(NSData *)data
-       withTag:(long)tag {
+- (void)websocket:(JFRWebSocket*)socket didReceiveData:(NSData*)data {
     serverActivity = CFAbsoluteTimeGetCurrent();
     STOMPFrame *frame = [STOMPFrame STOMPFrameFromData:data];
     [self receivedFrame:frame];
-    [self readFrame];
 }
 
-- (void)socket:(GCDAsyncSocket *)sock didReadPartialDataOfLength:(NSUInteger)partialLength tag:(long)tag {
-    LogDebug(@"<<< PONG");
-    serverActivity = CFAbsoluteTimeGetCurrent();
-}
-
-- (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port {
-    [self readFrame];
-}
-
-- (void)socketDidDisconnect:(GCDAsyncSocket *)sock
-                  withError:(NSError *)err {
+- (void)websocketDidDisconnect:(JFRWebSocket*)socket error:(NSError*)error {
     LogDebug(@"socket did disconnect");
     if (!self.connected && self.connectionCompletionHandler) {
-        self.connectionCompletionHandler(nil, err);
+        self.connectionCompletionHandler(nil, error);
     } else if (self.connected) {
         if (self.disconnectedHandler) {
-            self.disconnectedHandler(err);
+            self.disconnectedHandler(error);
         } else if (self.errorHandler) {
-            self.errorHandler(err);
+            self.errorHandler(error);
         }
     }
     self.connected = NO;
