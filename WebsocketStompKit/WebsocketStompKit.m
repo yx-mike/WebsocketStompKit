@@ -14,7 +14,7 @@
 #define kVersion1_2 @"1.2"
 #define kNoHeartBeat @"0,0"
 
-#define WSProtocols @[@"v10.stomp", @"v11.stomp"]
+#define WSProtocols @[]//@[@"v10.stomp", @"v11.stomp"]
 
 #pragma mark Logging macros
 
@@ -62,6 +62,7 @@
 @property (nonatomic) NSString *clientHeartBeat;
 @property (nonatomic, weak) NSTimer *pinger;
 @property (nonatomic, weak) NSTimer *ponger;
+@property (nonatomic, assign) BOOL heartbeat;
 
 @property (nonatomic, copy) void (^disconnectedHandler)(NSError *error);
 @property (nonatomic, copy) void (^connectionCompletionHandler)(STOMPFrame *connectedFrame, NSError *error);
@@ -103,13 +104,13 @@
 
 - (NSString *)toString {
     NSMutableString *frame = [NSMutableString stringWithString: [self.command stringByAppendingString:kLineFeed]];
-	for (id key in self.headers) {
+    for (id key in self.headers) {
         [frame appendString:[NSString stringWithFormat:@"%@%@%@%@", key, kHeaderSeparator, self.headers[key], kLineFeed]];
-	}
+    }
     [frame appendString:kLineFeed];
-	if (self.body) {
-		[frame appendString:self.body];
-	}
+    if (self.body) {
+        [frame appendString:self.body];
+    }
     [frame appendString:kNullChar];
     return frame;
 }
@@ -120,37 +121,37 @@
 
 + (STOMPFrame *) STOMPFrameFromData:(NSData *)data {
     NSData *strData = [data subdataWithRange:NSMakeRange(0, [data length])];
-	NSString *msg = [[NSString alloc] initWithData:strData encoding:NSUTF8StringEncoding];
+    NSString *msg = [[NSString alloc] initWithData:strData encoding:NSUTF8StringEncoding];
     LogDebug(@"<<< %@", msg);
     NSMutableArray *contents = (NSMutableArray *)[[msg componentsSeparatedByString:kLineFeed] mutableCopy];
     while ([contents count] > 0 && [contents[0] isEqual:@""]) {
         [contents removeObjectAtIndex:0];
     }
-	NSString *command = [[contents objectAtIndex:0] copy];
-	NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
-	NSMutableString *body = [[NSMutableString alloc] init];
-	BOOL hasHeaders = NO;
+    NSString *command = [[contents objectAtIndex:0] copy];
+    NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
+    NSMutableString *body = [[NSMutableString alloc] init];
+    BOOL hasHeaders = NO;
     [contents removeObjectAtIndex:0];
-	for(NSString *line in contents) {
-		if(hasHeaders) {
+    for(NSString *line in contents) {
+        if(hasHeaders) {
             for (int i=0; i < [line length]; i++) {
                 unichar c = [line characterAtIndex:i];
                 if (c != '\x00') {
                     [body appendString:[NSString stringWithFormat:@"%c", c]];
                 }
             }
-		} else {
-			if ([line isEqual:@""]) {
-				hasHeaders = YES;
-			} else {
-				NSMutableArray *parts = [NSMutableArray arrayWithArray:[line componentsSeparatedByString:kHeaderSeparator]];
-				// key ist the first part
-				NSString *key = parts[0];
+        } else {
+            if ([line isEqual:@""]) {
+                hasHeaders = YES;
+            } else {
+                NSMutableArray *parts = [NSMutableArray arrayWithArray:[line componentsSeparatedByString:kHeaderSeparator]];
+                // key ist the first part
+                NSString *key = parts[0];
                 [parts removeObjectAtIndex:0];
                 headers[key] = [parts componentsJoinedByString:kHeaderSeparator];
-			}
-		}
-	}
+            }
+        }
+    }
     return [[STOMPFrame alloc] initWithCommand:command headers:headers body:body];
 }
 
@@ -302,7 +303,7 @@
 
 @implementation STOMPClient
 
-@synthesize socket, url, host;
+@synthesize socket, url, host, heartbeat;
 @synthesize connectFrameHeaders;
 @synthesize connectionCompletionHandler, disconnectedHandler, receiptHandler, errorHandler;
 @synthesize subscriptions;
@@ -314,7 +315,7 @@ CFAbsoluteTime serverActivity;
 #pragma mark -
 #pragma mark Public API
 
-- (id)initWithURL:(NSURL *)theUrl webSocketHeaders:(NSDictionary *)headers {
+- (id)initWithURL:(NSURL *)theUrl webSocketHeaders:(NSDictionary *)headers useHeartbeat:(BOOL)heart {
     if(self = [super init]) {
         self.socket = [[JFRWebSocket alloc] initWithURL:theUrl protocols:WSProtocols];
         for (NSString *key in headers.allKeys) {
@@ -322,14 +323,20 @@ CFAbsoluteTime serverActivity;
         }
         self.socket.delegate = self;
         
+        self.heartbeat = heart;
+        
         self.url = theUrl;
         self.host = theUrl.host;
         idGenerator = 0;
         self.connected = NO;
         self.subscriptions = [[NSMutableDictionary alloc] init];
-        self.clientHeartBeat = @"5000,10000";
-	}
-	return self;
+        self.clientHeartBeat = @"10000,10000";
+    }
+    return self;
+}
+
+- (BOOL) heartbeatActivated {
+    return heartbeat;
 }
 
 - (void)connectWithLogin:(NSString *)login
@@ -356,7 +363,7 @@ CFAbsoluteTime serverActivity;
 - (void)sendTo:(NSString *)destination
        headers:(NSDictionary *)headers
           body:(NSString *)body {
-	NSMutableDictionary *msgHeaders = [NSMutableDictionary dictionaryWithDictionary:headers];
+    NSMutableDictionary *msgHeaders = [NSMutableDictionary dictionaryWithDictionary:headers];
     msgHeaders[kHeaderDestination] = destination;
     if (body) {
         msgHeaders[kHeaderContentLength] = [NSNumber numberWithLong:[body length]];
@@ -376,7 +383,7 @@ CFAbsoluteTime serverActivity;
 - (STOMPSubscription *)subscribeTo:(NSString *)destination
                            headers:(NSDictionary *)headers
                     messageHandler:(STOMPMessageHandler)handler {
-	NSMutableDictionary *subHeaders = [[NSMutableDictionary alloc] initWithDictionary:headers];
+    NSMutableDictionary *subHeaders = [[NSMutableDictionary alloc] initWithDictionary:headers];
     subHeaders[kHeaderDestination] = destination;
     NSString *identifier = subHeaders[kHeaderID];
     if (!identifier) {
@@ -429,8 +436,7 @@ CFAbsoluteTime serverActivity;
     }
     STOMPFrame *frame = [[STOMPFrame alloc] initWithCommand:command headers:headers body:body];
     LogDebug(@">>> %@", frame);
-    NSData *data = [frame toData];
-    [self.socket writeData:data];
+    [self.socket writeString:[frame toString]];
 }
 
 - (void)sendPing:(NSTimer *)timer  {
@@ -444,7 +450,7 @@ CFAbsoluteTime serverActivity;
 - (void)checkPong:(NSTimer *)timer  {
     NSDictionary *dict = timer.userInfo;
     NSInteger ttl = [dict[@"ttl"] intValue];
-
+    
     CFAbsoluteTime delta = CFAbsoluteTimeGetCurrent() - serverActivity;
     if (delta > (ttl * 2)) {
         LogDebug(@"did not receive server activity for the last %f seconds", delta);
@@ -454,24 +460,28 @@ CFAbsoluteTime serverActivity;
 
 - (void)setupHeartBeatWithClient:(NSString *)clientValues
                           server:(NSString *)serverValues {
+    if (!heartbeat) {
+        return;
+    }
+    
     NSInteger cx, cy, sx, sy;
-
+    
     NSScanner *scanner = [NSScanner scannerWithString:clientValues];
     scanner.charactersToBeSkipped = [NSCharacterSet characterSetWithCharactersInString:@", "];
     [scanner scanInteger:&cx];
     [scanner scanInteger:&cy];
-
+    
     scanner = [NSScanner scannerWithString:serverValues];
     scanner.charactersToBeSkipped = [NSCharacterSet characterSetWithCharactersInString:@", "];
     [scanner scanInteger:&sx];
     [scanner scanInteger:&sy];
-
+    
     NSInteger pingTTL = ceil(MAX(cx, sy) / 1000);
     NSInteger pongTTL = ceil(MAX(sx, cy) / 1000);
-
+    
     LogDebug(@"send heart-beat every %ld seconds", pingTTL);
     LogDebug(@"expect to receive heart-beats every %ld seconds", pongTTL);
-
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         if (pingTTL > 0) {
             self.pinger = [NSTimer scheduledTimerWithTimeInterval: pingTTL
@@ -488,7 +498,7 @@ CFAbsoluteTime serverActivity;
                                                           repeats: YES];
         }
     });
-
+    
 }
 
 - (void)receivedFrame:(STOMPFrame *)frame {
@@ -499,8 +509,8 @@ CFAbsoluteTime serverActivity;
         if (self.connectionCompletionHandler) {
             self.connectionCompletionHandler(frame, nil);
         }
-    // MESSAGE
-	} else if([kCommandMessage isEqual:frame.command]) {
+        // MESSAGE
+    } else if([kCommandMessage isEqual:frame.command]) {
         STOMPMessageHandler handler = self.subscriptions[frame.headers[kHeaderSubscription]];
         if (handler) {
             STOMPMessage *message = [STOMPMessage STOMPMessageFromFrame:frame
@@ -510,12 +520,12 @@ CFAbsoluteTime serverActivity;
             //TODO default handler
         }
         // RECEIPT
-	} else if([kCommandReceipt isEqual:frame.command]) {
+    } else if([kCommandReceipt isEqual:frame.command]) {
         if (self.receiptHandler) {
             self.receiptHandler(frame);
         }
         // ERROR
-	} else if([kCommandError isEqual:frame.command]) {
+    } else if([kCommandError isEqual:frame.command]) {
         NSError *error = [[NSError alloc] initWithDomain:@"StompKit" code:1 userInfo:@{@"frame": frame}];
         // ERROR coming after the CONNECT frame
         if (!self.connected && self.connectionCompletionHandler) {
@@ -525,7 +535,7 @@ CFAbsoluteTime serverActivity;
         } else {
             LogDebug(@"Unhandled ERROR frame: %@", frame);
         }
-	} else {
+    } else {
         NSError *error = [[NSError alloc] initWithDomain:@"StompKit"
                                                     code:2
                                                 userInfo:@{@"message": [NSString stringWithFormat:@"Unknown frame %@", frame.command],
@@ -559,9 +569,20 @@ CFAbsoluteTime serverActivity;
     
 }
 
+// BINARY FRAMES!
+// Should never be used for STOMP as STOMP is a text based protocol.
+// However, STOMPKit can handle binary data so no harm in leaving this here
 - (void)websocket:(JFRWebSocket*)socket didReceiveData:(NSData*)data {
     serverActivity = CFAbsoluteTimeGetCurrent();
     STOMPFrame *frame = [STOMPFrame STOMPFrameFromData:data];
+    [self receivedFrame:frame];
+}
+
+// TEXT FRAMES!
+// This is where all the goodness should arrive
+- (void)websocket:(JFRWebSocket*)socket didReceiveMessage:(NSString *)string {
+    serverActivity = CFAbsoluteTimeGetCurrent();
+    STOMPFrame *frame = [STOMPFrame STOMPFrameFromData:[string dataUsingEncoding:NSUTF8StringEncoding]];
     [self receivedFrame:frame];
 }
 
