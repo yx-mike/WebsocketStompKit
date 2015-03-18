@@ -18,7 +18,7 @@
 
 #pragma mark Logging macros
 
-#if 0 // set to 1 to enable logs
+#ifdef DEBUG // set to 1 to enable logs
 
 #define LogDebug(frmt, ...) NSLog(frmt, ##__VA_ARGS__);
 
