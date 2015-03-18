@@ -330,7 +330,7 @@ CFAbsoluteTime serverActivity;
         idGenerator = 0;
         self.connected = NO;
         self.subscriptions = [[NSMutableDictionary alloc] init];
-        self.clientHeartBeat = @"10000,10000";
+        self.clientHeartBeat = @"5000,10000";
     }
     return self;
 }

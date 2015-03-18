@@ -1,45 +1,45 @@
-StompKit
+WebsocketStompKit
 ========
 
-[![Build Status](https://travis-ci.org/mobile-web-messaging/StompKit.png?branch=master)](https://travis-ci.org/mobile-web-messaging/StompKit)
+[![Build Status](https://travis-ci.org/rguldener/WebsocketStompKit.png?branch=master)](https://travis-ci.org/rguldener/WebsocketStompKit)
+Current version: 0.1.1 (version mirrored to [StompKit](https://github.com/mobile-web-messaging/StompKit))
 
-STOMP Objective-C Client for iOS
+WebsocketStompKit is STOMP over websocket for iOS. It is built on the great [StompKit](https://github.com/mobile-web-messaging/StompKit) and replaces its socket handling library with the very well done [Jetfire](https://github.com/acmacalister/jetfire) websocket library.
 
-StompKit is a rewrite of [objc-stomp](https://github.com/juretta/objc-stomp) to create a modern event-driven Objective-C library using ARC, Grand Central Dispatch and blocks.
+## Why would I want to run STOMP over websockets on iOS?
 
-This library uses the Grand Central Dispatch version of [CocoaAsyncSocket](https://github.com/robbiehanson/CocoaAsyncSocket).
+Probably you already have a server that speaks STOMP over websockets. If you don't expect to have tens of thousands of clients at the same time, why rewrite everything from scratch? With WebsocketStompKit one server can handle both iOS and web clients.
 
-# Installation
+## Installation
 
-## Using CocoaPods
-
-StompKit is available on [CocoaPods](http://cocoapods.org/?q=StompKit).
-
-
-On your ```Podfile``` add this project:
-
+Install with Cocoapods
 ```
 ...
-pod 'StompKit', :git => 'https://github.com/mobile-web-messaging/StompKit.git'
+pod 'WebsocketStompKit', :git => 'https://github.com/rguldener/WebsocketStompKit.git', :tag => '0.1.1'
 ...
 ```
+Jetfire comes as a dependency so be prepared for that.
 
-For the first time, run ```pod install```, if you are updating the project invoke ```pod update```.
+## Usage
 
-# Usage
+Import into your project/Objective-C headers bridge file (for Swift)
 
-Import the `StompKit.h` header file
-
-```objc
-#import <StompKit.h>
+```
+#import <WebsocketStompKit/WebsocketStompKit.h>
 ```
 
-Send a message:
+Then instantiate the ```STOMPClient``` class
 
-```objc
-// create the client
-STOMPClient *client = [[STOMPClient alloc] initWithHost:@"localhost"
-                                                   port:61613];
+```
+NSURL *websocketUrl = [NSURL urlWithString:@"ws://my-great-server.com/websocket"];
+STOMPClient *client = [[STOMPClient alloc] initWithURL:websocketUrl websocketHeaders:nil useHeartbeat:NO];
+```
+
+websocketHeaders accepts an NSDictionary of additional HTTP header entries that should be passed along with the initial websocket request. This is especially useful if you need to authenticate with cookies as by default Jetfire **will not pass cookies** along with your initial websocket-upgrade HTTP request.  
+useHeartbeat allows you to deactivate the heartbeast compnent of STOMP (which is optional) as it is not supported by all STOMP brokers.
+
+Once you have your client object you can connect the same way as with StompKit
+```
 // connect to the broker
 [client connectWithLogin:@"mylogin"
                 passcode:@"mypassword"
@@ -56,34 +56,21 @@ STOMPClient *client = [[STOMPClient alloc] initWithHost:@"localhost"
         }];
 ```
 
-Subscribe to receive message:
+Note that the completion handler which you pass into the connect method will also be called when the websocket connection gets closed or if the connection creation does not succeed.
 
-```objc
-// create the client
-STOMPClient *client = [[STOMPClient alloc] initWithHost:@"localhost"
-                                                   port:61613];
-// connect to the broker
-[client connectWithLogin:@"mylogin"
-                passcode:@"mypassword"
-       completionHandler:^(STOMPFrame *_, NSError *error) {
-            if (err) {
-                NSLog(@"%@", error);
-                return;
-            }
+The rest of the provided methods are the same as in [StompKit], please refer to that Readme for basic usage information
 
-            // subscribe to the destination
-            [client subscribeTo:@"/queue/myqueue"
-                        headers:@{@"selector": @"color = 'red'"}
-                 messageHandler:^(STOMPMessage *message) {
-                    // callback when the client receive a message
-                    // for the /queue/myqueue destination
+## Differences to StompKit
+Easy:
 
-                    NSLog(@"got message %@", message.body); // => "Hello, iOS"
-                }];
-            }];
-```
+* Routes STOMP messages over websocket connection instead of a raw TCP socket
+* Allows deactivation of heartbeat functionality
 
-# Authors
+I plan to keep this in sync with StompKit moving forward and will mirror their versioning here.
 
-* [Jeff Mesnil](http://jmesnil.net/)
+## Authors
+
+* StompKit: [Jeff Mesnil](http://jmesnil.net/)
+* Jetfire: [Austin Cherry](http://austincherry.me) & [Dalton Cherry](http://daltoniam.com)
+* Mixing the two together: Robin Guldener
 
