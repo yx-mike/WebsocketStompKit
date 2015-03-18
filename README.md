@@ -1,8 +1,6 @@
 WebsocketStompKit
 ========
 
-[![Build Status](https://travis-ci.org/rguldener/WebsocketStompKit.png?branch=master)](https://travis-ci.org/rguldener/WebsocketStompKit)
-
 Current version: 0.1.1 (version mirrored to [StompKit](https://github.com/mobile-web-messaging/StompKit))
 
 WebsocketStompKit is STOMP over websocket for iOS. It is built on the great [StompKit](https://github.com/mobile-web-messaging/StompKit) and replaces its socket handling library with the very well done [Jetfire](https://github.com/acmacalister/jetfire) websocket library.
