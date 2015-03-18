@@ -2,6 +2,7 @@ WebsocketStompKit
 ========
 
 [![Build Status](https://travis-ci.org/rguldener/WebsocketStompKit.png?branch=master)](https://travis-ci.org/rguldener/WebsocketStompKit)
+
 Current version: 0.1.1 (version mirrored to [StompKit](https://github.com/mobile-web-messaging/StompKit))
 
 WebsocketStompKit is STOMP over websocket for iOS. It is built on the great [StompKit](https://github.com/mobile-web-messaging/StompKit) and replaces its socket handling library with the very well done [Jetfire](https://github.com/acmacalister/jetfire) websocket library.
@@ -36,9 +37,9 @@ STOMPClient *client = [[STOMPClient alloc] initWithURL:websocketUrl websocketHea
 ```
 
 websocketHeaders accepts an NSDictionary of additional HTTP header entries that should be passed along with the initial websocket request. This is especially useful if you need to authenticate with cookies as by default Jetfire **will not pass cookies** along with your initial websocket-upgrade HTTP request.  
-useHeartbeat allows you to deactivate the heartbeast compnent of STOMP (which is optional) as it is not supported by all STOMP brokers.
+useHeartbeat allows you to deactivate the heartbeat component of STOMP (which is optional) as it is not supported by all STOMP brokers.
 
-Once you have your client object you can connect the same way as with StompKit
+Once you have your client object you can connect in the same way as with StompKit
 ```
 // connect to the broker
 [client connectWithLogin:@"mylogin"
@@ -58,7 +59,7 @@ Once you have your client object you can connect the same way as with StompKit
 
 Note that the completion handler which you pass into the connect method will also be called when the websocket connection gets closed or if the connection creation does not succeed.
 
-The rest of the provided methods are the same as in [StompKit], please refer to that Readme for basic usage information
+The rest of the provided methods are the same as in [StompKit](https://github.com/mobile-web-messaging/StompKit), please refer to its Readme for basic usage information
 
 ## Differences to StompKit
 Easy:
