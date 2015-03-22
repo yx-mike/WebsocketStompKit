@@ -308,6 +308,7 @@
 @synthesize connectionCompletionHandler, disconnectedHandler, receiptHandler, errorHandler;
 @synthesize subscriptions;
 @synthesize pinger, ponger;
+@synthesize delegate;
 
 int idGenerator;
 CFAbsoluteTime serverActivity;
@@ -318,8 +319,10 @@ CFAbsoluteTime serverActivity;
 - (id)initWithURL:(NSURL *)theUrl webSocketHeaders:(NSDictionary *)headers useHeartbeat:(BOOL)heart {
     if(self = [super init]) {
         self.socket = [[JFRWebSocket alloc] initWithURL:theUrl protocols:WSProtocols];
-        for (NSString *key in headers.allKeys) {
-            [self.socket addHeader:[headers objectForKey:key] forKey:key];
+        if (headers) {
+            for (NSString *key in headers.allKeys) {
+                [self.socket addHeader:[headers objectForKey:key] forKey:key];
+            }
         }
         self.socket.delegate = self;
         
@@ -587,7 +590,7 @@ CFAbsoluteTime serverActivity;
 }
 
 - (void)websocketDidDisconnect:(JFRWebSocket*)socket error:(NSError*)error {
-    LogDebug(@"socket did disconnect");
+    LogDebug(@"socket did disconnect, error: %@", error);
     if (!self.connected && self.connectionCompletionHandler) {
         self.connectionCompletionHandler(nil, error);
     } else if (self.connected) {
