@@ -601,6 +601,10 @@ CFAbsoluteTime serverActivity;
         }
     }
     self.connected = NO;
+    
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(websocketDidDisconnect:)]) {
+        [self.delegate websocketDidDisconnect:error];
+    }
 }
 
 @end
