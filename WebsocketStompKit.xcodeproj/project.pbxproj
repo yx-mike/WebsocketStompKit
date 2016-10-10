@@ -1,510 +1,1126 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		005859CE1AB96F30006185FB /* WebsocketStompKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 005859CD1AB96F30006185FB /* WebsocketStompKit.m */; };
-		005859D11AB96F53006185FB /* WebsocketStompKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 005859D01AB96F53006185FB /* WebsocketStompKitTests.m */; };
-		6C24B5EB8E0343E483E53CA2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37A4F2569A574CA6A0704DA6 /* libPods.a */; };
-		932BA57C18056C4B00A03257 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 932BA57B18056C4B00A03257 /* Foundation.framework */; };
-		932BA58A18056C4C00A03257 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 932BA58918056C4C00A03257 /* XCTest.framework */; };
-		932BA58B18056C4C00A03257 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 932BA57B18056C4B00A03257 /* Foundation.framework */; };
-		932BA58D18056C4C00A03257 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 932BA58C18056C4C00A03257 /* UIKit.framework */; };
-		932BA59018056C4C00A03257 /* libWebsocketStompKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 932BA57818056C4B00A03257 /* libWebsocketStompKit.a */; };
-		932BA59618056C4C00A03257 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 932BA59418056C4C00A03257 /* InfoPlist.strings */; };
-		D1313E2FF21A4E15A007CA43 /* libPods-StompKitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 591868DBFE214F55AB478DA7 /* libPods-StompKitTests.a */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		932BA58E18056C4C00A03257 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 932BA57018056C4B00A03257 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 932BA57718056C4B00A03257;
-			remoteInfo = StompKit;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		932BA57618056C4B00A03257 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 16;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
-/* Begin PBXFileReference section */
-		005859CC1AB96F30006185FB /* WebsocketStompKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebsocketStompKit.h; path = WebsocketStompKit/WebsocketStompKit.h; sourceTree = SOURCE_ROOT; };
-		005859CD1AB96F30006185FB /* WebsocketStompKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebsocketStompKit.m; path = WebsocketStompKit/WebsocketStompKit.m; sourceTree = SOURCE_ROOT; };
-		005859CF1AB96F53006185FB /* WebsocketStompKitTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebsocketStompKitTests.h; path = WebsocketStompKitTests/WebsocketStompKitTests.h; sourceTree = SOURCE_ROOT; };
-		005859D01AB96F53006185FB /* WebsocketStompKitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebsocketStompKitTests.m; path = WebsocketStompKitTests/WebsocketStompKitTests.m; sourceTree = SOURCE_ROOT; };
-		37A4F2569A574CA6A0704DA6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		566F44FAC018466ACDB20B75 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		591868DBFE214F55AB478DA7 /* libPods-StompKitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StompKitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9320F3901816698700FF599F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
-		932BA57818056C4B00A03257 /* libWebsocketStompKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWebsocketStompKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		932BA57B18056C4B00A03257 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		932BA58818056C4C00A03257 /* WebsocketStompKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebsocketStompKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		932BA58918056C4C00A03257 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		932BA58C18056C4C00A03257 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		932BA59318056C4C00A03257 /* WebsocketStompKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WebsocketStompKitTests-Info.plist"; sourceTree = "<group>"; };
-		932BA59518056C4C00A03257 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		938827ED18056CA2009A1164 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		938827EE18056CA2009A1164 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		9D76DD3AA2A0BA27F8BC7D9A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		E13BC1EA3039EC423342920B /* Pods-StompKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StompKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StompKitTests/Pods-StompKitTests.debug.xcconfig"; sourceTree = "<group>"; };
-		F2106E46785E4C239A551BE3 /* Pods-StompKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StompKitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StompKitTests/Pods-StompKitTests.release.xcconfig"; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		932BA57518056C4B00A03257 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				932BA57C18056C4B00A03257 /* Foundation.framework in Frameworks */,
-				6C24B5EB8E0343E483E53CA2 /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		932BA58518056C4C00A03257 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				932BA58A18056C4C00A03257 /* XCTest.framework in Frameworks */,
-				932BA58D18056C4C00A03257 /* UIKit.framework in Frameworks */,
-				932BA59018056C4C00A03257 /* libWebsocketStompKit.a in Frameworks */,
-				932BA58B18056C4C00A03257 /* Foundation.framework in Frameworks */,
-				D1313E2FF21A4E15A007CA43 /* libPods-StompKitTests.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		932BA56F18056C4B00A03257 = {
-			isa = PBXGroup;
-			children = (
-				9320F3901816698700FF599F /* Podfile */,
-				938827ED18056CA2009A1164 /* LICENSE */,
-				938827EE18056CA2009A1164 /* README.md */,
-				932BA57D18056C4B00A03257 /* WebsocketStompKit */,
-				932BA59118056C4C00A03257 /* StompKitTests */,
-				932BA57A18056C4B00A03257 /* Frameworks */,
-				932BA57918056C4B00A03257 /* Products */,
-				C220D1A04164CBCD2C98650C /* Pods */,
-			);
-			sourceTree = "<group>";
-		};
-		932BA57918056C4B00A03257 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				932BA57818056C4B00A03257 /* libWebsocketStompKit.a */,
-				932BA58818056C4C00A03257 /* WebsocketStompKitTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		932BA57A18056C4B00A03257 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				932BA57B18056C4B00A03257 /* Foundation.framework */,
-				932BA58918056C4C00A03257 /* XCTest.framework */,
-				932BA58C18056C4C00A03257 /* UIKit.framework */,
-				37A4F2569A574CA6A0704DA6 /* libPods.a */,
-				591868DBFE214F55AB478DA7 /* libPods-StompKitTests.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		932BA57D18056C4B00A03257 /* WebsocketStompKit */ = {
-			isa = PBXGroup;
-			children = (
-				005859CC1AB96F30006185FB /* WebsocketStompKit.h */,
-				005859CD1AB96F30006185FB /* WebsocketStompKit.m */,
-			);
-			name = WebsocketStompKit;
-			path = StompKit;
-			sourceTree = "<group>";
-		};
-		932BA59118056C4C00A03257 /* StompKitTests */ = {
-			isa = PBXGroup;
-			children = (
-				005859CF1AB96F53006185FB /* WebsocketStompKitTests.h */,
-				005859D01AB96F53006185FB /* WebsocketStompKitTests.m */,
-				932BA59218056C4C00A03257 /* Supporting Files */,
-			);
-			path = StompKitTests;
-			sourceTree = "<group>";
-		};
-		932BA59218056C4C00A03257 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				932BA59318056C4C00A03257 /* WebsocketStompKitTests-Info.plist */,
-				932BA59418056C4C00A03257 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		C220D1A04164CBCD2C98650C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				9D76DD3AA2A0BA27F8BC7D9A /* Pods.debug.xcconfig */,
-				566F44FAC018466ACDB20B75 /* Pods.release.xcconfig */,
-				E13BC1EA3039EC423342920B /* Pods-StompKitTests.debug.xcconfig */,
-				F2106E46785E4C239A551BE3 /* Pods-StompKitTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		932BA57718056C4B00A03257 /* WebsocketStompKit */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 932BA59B18056C4C00A03257 /* Build configuration list for PBXNativeTarget "WebsocketStompKit" */;
-			buildPhases = (
-				F14EDA9ACA514E238C2E405D /* Check Pods Manifest.lock */,
-				932BA57418056C4B00A03257 /* Sources */,
-				932BA57518056C4B00A03257 /* Frameworks */,
-				932BA57618056C4B00A03257 /* CopyFiles */,
-				F35F0CAAF0E740C2A96A5AC7 /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = WebsocketStompKit;
-			productName = StompKit;
-			productReference = 932BA57818056C4B00A03257 /* libWebsocketStompKit.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		932BA58718056C4C00A03257 /* WebsocketStompKitTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 932BA59E18056C4C00A03257 /* Build configuration list for PBXNativeTarget "WebsocketStompKitTests" */;
-			buildPhases = (
-				125CC95EDE78443AA2A8A7CA /* Check Pods Manifest.lock */,
-				932BA58418056C4C00A03257 /* Sources */,
-				932BA58518056C4C00A03257 /* Frameworks */,
-				932BA58618056C4C00A03257 /* Resources */,
-				D78F70268CF740B1A5B2133D /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				932BA58F18056C4C00A03257 /* PBXTargetDependency */,
-			);
-			name = WebsocketStompKitTests;
-			productName = StompKitTests;
-			productReference = 932BA58818056C4C00A03257 /* WebsocketStompKitTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		932BA57018056C4B00A03257 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastUpgradeCheck = 0500;
-				ORGANIZATIONNAME = "Jeff Mesnil";
-			};
-			buildConfigurationList = 932BA57318056C4B00A03257 /* Build configuration list for PBXProject "WebsocketStompKit" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
-			mainGroup = 932BA56F18056C4B00A03257;
-			productRefGroup = 932BA57918056C4B00A03257 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				932BA57718056C4B00A03257 /* WebsocketStompKit */,
-				932BA58718056C4C00A03257 /* WebsocketStompKitTests */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		932BA58618056C4C00A03257 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				932BA59618056C4C00A03257 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		125CC95EDE78443AA2A8A7CA /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		D78F70268CF740B1A5B2133D /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StompKitTests/Pods-StompKitTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F14EDA9ACA514E238C2E405D /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		F35F0CAAF0E740C2A96A5AC7 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		932BA57418056C4B00A03257 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				005859D11AB96F53006185FB /* WebsocketStompKitTests.m in Sources */,
-				005859CE1AB96F30006185FB /* WebsocketStompKit.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		932BA58418056C4C00A03257 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		932BA58F18056C4C00A03257 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 932BA57718056C4B00A03257 /* WebsocketStompKit */;
-			targetProxy = 932BA58E18056C4C00A03257 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		932BA59418056C4C00A03257 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				932BA59518056C4C00A03257 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		932BA59918056C4C00A03257 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-			};
-			name = Debug;
-		};
-		932BA59A18056C4C00A03257 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		932BA59C18056C4C00A03257 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9D76DD3AA2A0BA27F8BC7D9A /* Pods.debug.xcconfig */;
-			buildSettings = {
-				DSTROOT = /tmp/StompKit.dst;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = WebsocketStompKit;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		932BA59D18056C4C00A03257 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 566F44FAC018466ACDB20B75 /* Pods.release.xcconfig */;
-			buildSettings = {
-				DSTROOT = /tmp/StompKit.dst;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = WebsocketStompKit;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		932BA59F18056C4C00A03257 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E13BC1EA3039EC423342920B /* Pods-StompKitTests.debug.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "StompKitTests/WebsocketStompKitTests-Info.plist";
-				PRODUCT_NAME = WebsocketStompKitTests;
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		932BA5A018056C4C00A03257 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2106E46785E4C239A551BE3 /* Pods-StompKitTests.release.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				INFOPLIST_FILE = "StompKitTests/WebsocketStompKitTests-Info.plist";
-				PRODUCT_NAME = WebsocketStompKitTests;
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		932BA57318056C4B00A03257 /* Build configuration list for PBXProject "WebsocketStompKit" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				932BA59918056C4C00A03257 /* Debug */,
-				932BA59A18056C4C00A03257 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		932BA59B18056C4C00A03257 /* Build configuration list for PBXNativeTarget "WebsocketStompKit" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				932BA59C18056C4C00A03257 /* Debug */,
-				932BA59D18056C4C00A03257 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		932BA59E18056C4C00A03257 /* Build configuration list for PBXNativeTarget "WebsocketStompKitTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				932BA59F18056C4C00A03257 /* Debug */,
-				932BA5A018056C4C00A03257 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = 932BA57018056C4B00A03257 /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>005859CC1AB96F30006185FB</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>WebsocketStompKit.h</string>
+			<key>path</key>
+			<string>WebsocketStompKit/WebsocketStompKit.h</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+		</dict>
+		<key>005859CD1AB96F30006185FB</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>WebsocketStompKit.m</string>
+			<key>path</key>
+			<string>WebsocketStompKit/WebsocketStompKit.m</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+		</dict>
+		<key>005859CE1AB96F30006185FB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>005859CD1AB96F30006185FB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>005859CF1AB96F53006185FB</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>WebsocketStompKitTests.h</string>
+			<key>path</key>
+			<string>WebsocketStompKitTests/WebsocketStompKitTests.h</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+		</dict>
+		<key>005859D01AB96F53006185FB</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>WebsocketStompKitTests.m</string>
+			<key>path</key>
+			<string>WebsocketStompKitTests/WebsocketStompKitTests.m</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+		</dict>
+		<key>005859D11AB96F53006185FB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>005859D01AB96F53006185FB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>125CC95EDE78443AA2A8A7CA</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>37A4F2569A574CA6A0704DA6</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>44C8165830FC0C9EDF12CEE0</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-WebsocketStompKitTests/Pods-WebsocketStompKitTests-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>566F44FAC018466ACDB20B75</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods/Pods.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>591868DBFE214F55AB478DA7</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-StompKitTests.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>6C24B5EB8E0343E483E53CA2</key>
+		<dict>
+			<key>fileRef</key>
+			<string>37A4F2569A574CA6A0704DA6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>9320F3901816698700FF599F</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>path</key>
+			<string>Podfile</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>932BA56F18056C4B00A03257</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>DF28447C1DAB500C006B774A</string>
+				<string>9320F3901816698700FF599F</string>
+				<string>938827ED18056CA2009A1164</string>
+				<string>938827EE18056CA2009A1164</string>
+				<string>932BA57D18056C4B00A03257</string>
+				<string>932BA59118056C4C00A03257</string>
+				<string>932BA57A18056C4B00A03257</string>
+				<string>932BA57918056C4B00A03257</string>
+				<string>C220D1A04164CBCD2C98650C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>932BA57018056C4B00A03257</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastUpgradeCheck</key>
+				<string>0500</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>Jeff Mesnil</string>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>932BA57318056C4B00A03257</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+			</array>
+			<key>mainGroup</key>
+			<string>932BA56F18056C4B00A03257</string>
+			<key>productRefGroup</key>
+			<string>932BA57918056C4B00A03257</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>932BA57718056C4B00A03257</string>
+				<string>932BA58718056C4C00A03257</string>
+			</array>
+		</dict>
+		<key>932BA57318056C4B00A03257</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>932BA59918056C4C00A03257</string>
+				<string>932BA59A18056C4C00A03257</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>932BA57418056C4B00A03257</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>005859D11AB96F53006185FB</string>
+				<string>005859CE1AB96F30006185FB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>932BA57518056C4B00A03257</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>932BA57C18056C4B00A03257</string>
+				<string>6C24B5EB8E0343E483E53CA2</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>932BA57618056C4B00A03257</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>dstPath</key>
+			<string>include/$(PRODUCT_NAME)</string>
+			<key>dstSubfolderSpec</key>
+			<string>16</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXCopyFilesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>932BA57718056C4B00A03257</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>932BA59B18056C4C00A03257</string>
+			<key>buildPhases</key>
+			<array>
+				<string>F14EDA9ACA514E238C2E405D</string>
+				<string>932BA57418056C4B00A03257</string>
+				<string>932BA57518056C4B00A03257</string>
+				<string>932BA57618056C4B00A03257</string>
+				<string>F35F0CAAF0E740C2A96A5AC7</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>WebsocketStompKit</string>
+			<key>productName</key>
+			<string>StompKit</string>
+			<key>productReference</key>
+			<string>932BA57818056C4B00A03257</string>
+			<key>productType</key>
+			<string>com.apple.product-type.library.static</string>
+		</dict>
+		<key>932BA57818056C4B00A03257</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libWebsocketStompKit.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>932BA57918056C4B00A03257</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>932BA57818056C4B00A03257</string>
+				<string>932BA58818056C4C00A03257</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>932BA57A18056C4B00A03257</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>932BA57B18056C4B00A03257</string>
+				<string>932BA58918056C4C00A03257</string>
+				<string>932BA58C18056C4C00A03257</string>
+				<string>37A4F2569A574CA6A0704DA6</string>
+				<string>591868DBFE214F55AB478DA7</string>
+				<string>ADB21D6722919D70DCDC85AB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>932BA57B18056C4B00A03257</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Foundation.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/Foundation.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>932BA57C18056C4B00A03257</key>
+		<dict>
+			<key>fileRef</key>
+			<string>932BA57B18056C4B00A03257</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>932BA57D18056C4B00A03257</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>005859CC1AB96F30006185FB</string>
+				<string>005859CD1AB96F30006185FB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>WebsocketStompKit</string>
+			<key>path</key>
+			<string>StompKit</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>932BA58418056C4C00A03257</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>932BA58518056C4C00A03257</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>932BA58A18056C4C00A03257</string>
+				<string>932BA58D18056C4C00A03257</string>
+				<string>932BA59018056C4C00A03257</string>
+				<string>932BA58B18056C4C00A03257</string>
+				<string>D1313E2FF21A4E15A007CA43</string>
+				<string>E1416E167F311EB9921E1975</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>932BA58618056C4C00A03257</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>932BA59618056C4C00A03257</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>932BA58718056C4C00A03257</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>932BA59E18056C4C00A03257</string>
+			<key>buildPhases</key>
+			<array>
+				<string>125CC95EDE78443AA2A8A7CA</string>
+				<string>932BA58418056C4C00A03257</string>
+				<string>932BA58518056C4C00A03257</string>
+				<string>932BA58618056C4C00A03257</string>
+				<string>D78F70268CF740B1A5B2133D</string>
+				<string>44C8165830FC0C9EDF12CEE0</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>932BA58F18056C4C00A03257</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>WebsocketStompKitTests</string>
+			<key>productName</key>
+			<string>StompKitTests</string>
+			<key>productReference</key>
+			<string>932BA58818056C4C00A03257</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.unit-test</string>
+		</dict>
+		<key>932BA58818056C4C00A03257</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>WebsocketStompKitTests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>932BA58918056C4C00A03257</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>XCTest.framework</string>
+			<key>path</key>
+			<string>Library/Frameworks/XCTest.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>932BA58A18056C4C00A03257</key>
+		<dict>
+			<key>fileRef</key>
+			<string>932BA58918056C4C00A03257</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>932BA58B18056C4C00A03257</key>
+		<dict>
+			<key>fileRef</key>
+			<string>932BA57B18056C4B00A03257</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>932BA58C18056C4C00A03257</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>UIKit.framework</string>
+			<key>path</key>
+			<string>Library/Frameworks/UIKit.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>932BA58D18056C4C00A03257</key>
+		<dict>
+			<key>fileRef</key>
+			<string>932BA58C18056C4C00A03257</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>932BA58E18056C4C00A03257</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>932BA57018056C4B00A03257</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>932BA57718056C4B00A03257</string>
+			<key>remoteInfo</key>
+			<string>StompKit</string>
+		</dict>
+		<key>932BA58F18056C4C00A03257</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>932BA57718056C4B00A03257</string>
+			<key>targetProxy</key>
+			<string>932BA58E18056C4C00A03257</string>
+		</dict>
+		<key>932BA59018056C4C00A03257</key>
+		<dict>
+			<key>fileRef</key>
+			<string>932BA57818056C4B00A03257</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>932BA59118056C4C00A03257</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>005859CF1AB96F53006185FB</string>
+				<string>005859D01AB96F53006185FB</string>
+				<string>932BA59218056C4C00A03257</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>StompKitTests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>932BA59218056C4C00A03257</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>932BA59318056C4C00A03257</string>
+				<string>932BA59418056C4C00A03257</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>932BA59318056C4C00A03257</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>WebsocketStompKitTests-Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>932BA59418056C4C00A03257</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>932BA59518056C4C00A03257</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>932BA59518056C4C00A03257</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.strings</string>
+			<key>name</key>
+			<string>en</string>
+			<key>path</key>
+			<string>en.lproj/InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>932BA59618056C4C00A03257</key>
+		<dict>
+			<key>fileRef</key>
+			<string>932BA59418056C4C00A03257</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>932BA59918056C4C00A03257</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>5.0</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>932BA59A18056C4C00A03257</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>5.0</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>932BA59B18056C4C00A03257</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>932BA59C18056C4C00A03257</string>
+				<string>932BA59D18056C4C00A03257</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>932BA59C18056C4C00A03257</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>9D76DD3AA2A0BA27F8BC7D9A</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>DSTROOT</key>
+				<string>/tmp/StompKit.dst</string>
+				<key>OTHER_LDFLAGS</key>
+				<string>-ObjC</string>
+				<key>PRODUCT_NAME</key>
+				<string>WebsocketStompKit</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>932BA59D18056C4C00A03257</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>566F44FAC018466ACDB20B75</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>DSTROOT</key>
+				<string>/tmp/StompKit.dst</string>
+				<key>OTHER_LDFLAGS</key>
+				<string>-ObjC</string>
+				<key>PRODUCT_NAME</key>
+				<string>WebsocketStompKit</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>932BA59E18056C4C00A03257</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>932BA59F18056C4C00A03257</string>
+				<string>932BA5A018056C4C00A03257</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>932BA59F18056C4C00A03257</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>E13BC1EA3039EC423342920B</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
+					<string>$(inherited)</string>
+					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
+				</array>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>INFOPLIST_FILE</key>
+				<string>StompKitTests/WebsocketStompKitTests-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>WebsocketStompKitTests</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>xctest</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>932BA5A018056C4C00A03257</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>F2106E46785E4C239A551BE3</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
+					<string>$(inherited)</string>
+					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
+				</array>
+				<key>INFOPLIST_FILE</key>
+				<string>StompKitTests/WebsocketStompKitTests-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>WebsocketStompKitTests</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>xctest</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>938827ED18056CA2009A1164</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>path</key>
+			<string>LICENSE</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>938827EE18056CA2009A1164</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>path</key>
+			<string>README.md</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9D76DD3AA2A0BA27F8BC7D9A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods/Pods.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>ADB21D6722919D70DCDC85AB</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-WebsocketStompKitTests.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>C220D1A04164CBCD2C98650C</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>9D76DD3AA2A0BA27F8BC7D9A</string>
+				<string>566F44FAC018466ACDB20B75</string>
+				<string>E13BC1EA3039EC423342920B</string>
+				<string>F2106E46785E4C239A551BE3</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D1313E2FF21A4E15A007CA43</key>
+		<dict>
+			<key>fileRef</key>
+			<string>591868DBFE214F55AB478DA7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>D78F70268CF740B1A5B2133D</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-WebsocketStompKitTests/Pods-WebsocketStompKitTests-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>DF28447C1DAB500C006B774A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>path</key>
+			<string>WebsocketStompKit.podspec</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E13BC1EA3039EC423342920B</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-StompKitTests.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-StompKitTests/Pods-StompKitTests.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E1416E167F311EB9921E1975</key>
+		<dict>
+			<key>fileRef</key>
+			<string>ADB21D6722919D70DCDC85AB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F14EDA9ACA514E238C2E405D</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>F2106E46785E4C239A551BE3</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-StompKitTests.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-StompKitTests/Pods-StompKitTests.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F35F0CAAF0E740C2A96A5AC7</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>932BA57018056C4B00A03257</string>
+</dict>
+</plist>
